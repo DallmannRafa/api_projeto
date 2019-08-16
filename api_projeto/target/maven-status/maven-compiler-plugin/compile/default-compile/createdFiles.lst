@@ -1,0 +1,17 @@
+br\com\escola\api\dao\AlunoDAO.class
+br\com\escola\api\controller\CursoController.class
+br\com\escola\api\controller\AlunoController.class
+br\com\escola\api\controller\ProfessorController.class
+br\com\escola\api\dao\ProfessorDAO.class
+br\com\escola\api\controller\TurmaController.class
+br\com\escola\api\MyApplication.class
+br\com\escola\api\controller\HelloController.class
+br\com\escola\api\data\ConexaoMysqlJDBC.class
+br\com\escola\api\dao\CursoDAO.class
+br\com\escola\api\dao\TurmaDAO.class
+br\com\escola\api\model\Professor.class
+br\com\escola\api\model\Aluno.class
+br\com\escola\api\model\Curso.class
+br\com\escola\api\model\Turma.class
+br\com\escola\api\data\ConexaoJDBC.class
+br\com\escola\api\model\util\Status.class
