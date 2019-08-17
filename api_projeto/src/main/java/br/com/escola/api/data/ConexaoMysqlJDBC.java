@@ -11,8 +11,9 @@ public class ConexaoMysqlJDBC implements ConexaoJDBC {
 	private static final String USERNAME = "root";
 	// Senha do mysql
 	private static final String PASSWORD = "123456";
-	// Dados de caminho, porta e nome da base de dados que irá ser feita a conexão
-	private static final String DATABASE_URL = "jdbc:mysql://127.0.0.1:3306/ESCOLA_ENTRA21?useTimezone=true&serverTimezone=UTC";
+	// Dados de caminho, porta e nome da base de dados que irï¿½ ser feita a conexï¿½o
+	private static final String DATABASE_URL =  "jdbc:mysql://localhost:3306/escola?useTimezone=true&serverTimezone=UTC";
+		
 
 	public ConexaoMysqlJDBC() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");

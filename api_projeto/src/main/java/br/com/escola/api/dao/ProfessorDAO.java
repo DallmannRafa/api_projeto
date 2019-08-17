@@ -15,7 +15,7 @@ public class ProfessorDAO {
     }
     public Long inserir(Professor professor) throws SQLException, ClassNotFoundException {
         Long id = null;
-        String sqlQuery = "INSERT INTO professor (nome_professor, status, email_professor) VALUES (?, ?, ?) ";
+        String sqlQuery = "INSERT INTO professor (NOME_PROFESSOR, STATUS_PROFESSOR, EMAIL_PROFESSOR) VALUES (?, ?, ?) ";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             stmt.setString(1, professor.getNome_professor());
@@ -30,7 +30,7 @@ public class ProfessorDAO {
         return id;
     }
     public int alterar(Professor professor) throws SQLException, ClassNotFoundException {
-        String sqlQuery = "UPDATE professor SET nome_professor = ?, status = ?, email_professor = ? WHERE id = ?";
+        String sqlQuery = "UPDATE professor SET NOME_PROFESSOR = ?, STATUS_PROFESSOR = ?, EMAIL_PORFESSOR = ? WHERE ID_PROFESSOR = ?";
         int linhasAfetadas = 0;
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
@@ -48,7 +48,7 @@ public class ProfessorDAO {
     }
     public int excluir(long id) throws SQLException, ClassNotFoundException {
         int linhasAlfetadas = 0;
-        String sqlQuery = "DELETE FROM professor WHERE id = ?";
+        String sqlQuery = "DELETE FROM professor WHERE ID_PROFESSOR = ?";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             stmt.setLong(1, id);
@@ -61,7 +61,7 @@ public class ProfessorDAO {
         return linhasAlfetadas;
     }
     public Professor selecionar(long id) throws SQLException, ClassNotFoundException {
-        String sqlQuery = "SELECT * FROM professor WHERE id = ?";
+        String sqlQuery = "SELECT * FROM professor WHERE ID_PROFESSOR = ?";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             stmt.setLong(1, id);
@@ -75,7 +75,7 @@ public class ProfessorDAO {
         return null;
     }
     public List<Professor> listar() throws SQLException, ClassNotFoundException {
-        String sqlQuery = "SELECT * FROM professor ORDER BY id";
+        String sqlQuery = "SELECT * FROM professor ORDER BY ID_PROFESSOR";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             ResultSet rs = stmt.executeQuery();
@@ -90,10 +90,10 @@ public class ProfessorDAO {
     }
     private Professor parser(ResultSet resultSet) throws SQLException {
         Professor c = new Professor();
-        c.setId_professor(resultSet.getLong("id"));
-        c.setNome_professor(resultSet.getString("nome_professor"));
-        c.setEmail_professor(resultSet.getString("email_professor"));
-        c.setStatus(Status.valueOf(resultSet.getString("status")));
+        c.setId_professor(resultSet.getLong("ID_PROFESSOR"));
+        c.setNome_professor(resultSet.getString("NOME_PROFESSOR"));
+        c.setEmail_professor(resultSet.getString("EMAIL_PROFESSOR"));
+        c.setStatus(Status.valueOf(resultSet.getString("STATUS_PROFESSOR")));
         return c;
     }
 }
