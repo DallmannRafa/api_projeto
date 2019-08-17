@@ -15,7 +15,7 @@ public class AlunoDAO {
     }
     public Long inserir(Aluno aluno) throws SQLException, ClassNotFoundException {
         Long id = null;
-        String sqlQuery = "INSERT INTO aluno (nome_aluno, status, dt_nasc) VALUES (?, ?, ?) ";
+        String sqlQuery = "INSERT INTO aluno (NOME_ALUNO, status, DATA_NASC_ALUNO) VALUES (?, ?, ?) ";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             stmt.setString(1, aluno.getNome_aluno());
@@ -30,7 +30,7 @@ public class AlunoDAO {
         return id;
     }
     public int alterar(Aluno aluno) throws SQLException, ClassNotFoundException {
-        String sqlQuery = "UPDATE aluno SET nome_aluno = ?, status = ?, dt_nasc = ? WHERE id = ?";
+        String sqlQuery = "UPDATE aluno SET NOME_ALUNO = ?, STATUS_ALUNO = ?, DATA_NASC_ALUNO = ? WHERE id = ?";
         int linhasAfetadas = 0;
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
@@ -61,7 +61,7 @@ public class AlunoDAO {
         return linhasAlfetadas;
     }
     public Aluno selecionar(long id) throws SQLException, ClassNotFoundException {
-        String sqlQuery = "SELECT * FROM aluno WHERE id = ?";
+        String sqlQuery = "SELECT * FROM aluno WHERE ID_ALUNO = ?";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             stmt.setLong(1, id);
@@ -75,7 +75,7 @@ public class AlunoDAO {
         return null;
     }
     public List<Aluno> listar() throws SQLException, ClassNotFoundException {
-        String sqlQuery = "SELECT * FROM aluno ORDER BY id";
+        String sqlQuery = "SELECT * FROM aluno ORDER BY ALUNO";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             ResultSet rs = stmt.executeQuery();
@@ -90,9 +90,9 @@ public class AlunoDAO {
     }
     private Aluno parser(ResultSet resultSet) throws SQLException {
         Aluno c = new Aluno();
-        c.setId_aluno(resultSet.getLong("id"));
-        c.setNome_aluno(resultSet.getString("nome_aluno"));
-        c.setDt_nasc(resultSet.getString("dt_nasc"));
+        c.setId_aluno(resultSet.getLong("ID_ALUNO"));
+        c.setNome_aluno(resultSet.getString("NOME_ALUNO"));
+        c.setDt_nasc(resultSet.getString("DATA_NASC_ALUNO"));
         c.setStatus(Status.valueOf(resultSet.getString("status")));
         return c;
     }

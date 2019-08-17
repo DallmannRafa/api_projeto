@@ -16,7 +16,7 @@ public class CursoDAO {
     }
     public Long inserir(Curso curso) throws SQLException, ClassNotFoundException {
         Long id = null;
-        String sqlQuery = "INSERT INTO curso (nome_curso, status, carga_horaria) VALUES (?, ?, ?) ";
+        String sqlQuery = "INSERT INTO curso (NOME_CURSO, status, CARGA_HORARIA) VALUES (?, ?, ?) ";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             stmt.setString(1, curso.getNome_curso());
@@ -31,7 +31,7 @@ public class CursoDAO {
         return id;
     }
     public int alterar(Curso curso) throws SQLException, ClassNotFoundException {
-        String sqlQuery = "UPDATE curso SET nome_curso = ?, status = ?, carga_horaria = ? WHERE id_curso = ?";
+        String sqlQuery = "UPDATE curso SET NOME_CURSO = ?, status = ?, CARGA_HORARIA = ? WHERE ID_CURSO = ?";
         int linhasAfetadas = 0;
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
@@ -49,7 +49,7 @@ public class CursoDAO {
     }
     public int excluir(long id) throws SQLException, ClassNotFoundException {
         int linhasAlfetadas = 0;
-        String sqlQuery = "DELETE FROM curso WHERE id_curso = ?";
+        String sqlQuery = "DELETE FROM curso WHERE ID_CURSO = ?";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             stmt.setLong(1, id);
@@ -62,7 +62,7 @@ public class CursoDAO {
         return linhasAlfetadas;
     }
     public Curso selecionar(long id) throws SQLException, ClassNotFoundException {
-        String sqlQuery = "SELECT * FROM curso WHERE id_curso = ?";
+        String sqlQuery = "SELECT * FROM curso WHERE ID_CURSO = ?";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             stmt.setLong(1, id);
@@ -76,7 +76,7 @@ public class CursoDAO {
         return null;
     }
     public List<Curso> listar() throws SQLException, ClassNotFoundException {
-        String sqlQuery = "SELECT * FROM curso ORDER BY id_curso";
+        String sqlQuery = "SELECT * FROM curso ORDER BY ID_CURSO";
         try {
             PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
             ResultSet rs = stmt.executeQuery();
@@ -91,9 +91,9 @@ public class CursoDAO {
     }
     private Curso parser(ResultSet resultSet) throws SQLException {
         Curso c = new Curso();
-        c.setId_curso(resultSet.getLong("id_curso"));
-        c.setNome_curso(resultSet.getString("nome_curso"));
-        c.setCarga_horaria(resultSet.getString("carga_horaria"));
+        c.setId_curso(resultSet.getLong("ID_CURSO"));
+        c.setNome_curso(resultSet.getString("NOME_CURSO"));
+        c.setCarga_horaria(resultSet.getString("CARGA_HORARIA"));
         c.setStatus(Status.valueOf(resultSet.getString("status")));
         return c;
     }
