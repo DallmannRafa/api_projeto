@@ -2,11 +2,9 @@
 *.class
 *.classpath
 *.project
-*.metadata
 *.settings/
+*.metadata
 /bin
-
-
 
 #intellij
 *.idea/
