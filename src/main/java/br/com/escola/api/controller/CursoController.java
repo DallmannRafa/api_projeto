@@ -68,7 +68,6 @@ public class CursoController {
 	@Path("/")
 	public Response update(Curso curso) {
 		try {
-			curso.setStatus(Status.NOVO);
 			CursoDAO cursoDAO = new CursoDAO();
 			cursoDAO.alterar(curso);
 			return Response.status(Response.Status.ACCEPTED).build();

@@ -13,7 +13,7 @@ public class ConexaoMysqlJDBC implements ConexaoJDBC {
 	private static final String PASSWORD = "";
 	// Dados de caminho, porta e nome da base de dados que ir� ser feita a conex�o
 
-	private static final String DATABASE_URL =  "jdbc:mysql://localhost:3306/escola?useTimezone=true&serverTimezone=UTC";
+	private static final String DATABASE_URL =  "jdbc:mysql://localhost:3307/escola?useTimezone=true&serverTimezone=UTC";
 		
 
 	public ConexaoMysqlJDBC() throws SQLException, ClassNotFoundException {

@@ -31,7 +31,7 @@ public class ProfessorDAO {
         return id;
     }
     public int alterar(Professor professor) throws SQLException, ClassNotFoundException {
-        String sqlQuery = "UPDATE professor SET NOME_PROFESSOR = ?, STATUS_PROFESSOR = ?, EMAIL_PORFESSOR = ? WHERE ID_PROFESSOR = ?";
+        String sqlQuery = "UPDATE professor SET NOME_PROFESSOR = ?, STATUS_PROFESSOR = ?, EMAIL_PROFESSOR = ? WHERE ID_PROFESSOR = ?";
 
         int linhasAfetadas = 0;
         try {

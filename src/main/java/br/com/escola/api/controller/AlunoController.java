@@ -71,7 +71,6 @@ public class AlunoController {
 	@Path("/")
 	public Response update(Aluno aluno) {
 		try {
-			aluno.setStatus(Status.NOVO);
 			AlunoDAO alunoDAO = new AlunoDAO();
 			alunoDAO.alterar(aluno);
 			return Response.status(Response.Status.ACCEPTED).build();

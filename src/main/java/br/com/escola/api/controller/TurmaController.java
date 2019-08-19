@@ -69,7 +69,6 @@ public class TurmaController {
 	@Path("/")
 	public Response update(Turma turma) {
 		try {
-			turma.setStatus(Status.NOVO);
 			TurmaDAO turmaDAO = new TurmaDAO();
 			turmaDAO.alterar(turma);
 			return Response.status(Response.Status.ACCEPTED).build();

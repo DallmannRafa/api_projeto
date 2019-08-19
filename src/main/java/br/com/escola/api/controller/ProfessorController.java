@@ -68,7 +68,6 @@ public class ProfessorController {
 	@Path("/")
 	public Response update(Professor professor) {
 		try {
-			professor.setStatus(Status.NOVO);
 			ProfessorDAO professorDAO = new ProfessorDAO();
 			professorDAO.alterar(professor);
 			return Response.status(Response.Status.ACCEPTED).build();
