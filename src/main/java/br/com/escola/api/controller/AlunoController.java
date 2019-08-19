@@ -70,8 +70,15 @@ public class AlunoController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/")
 	public Response update(Aluno aluno) {
-		System.out.println(aluno.toString());
-		return Response.status(Response.Status.OK).build();
+		try {
+			aluno.setStatus(Status.NOVO);
+			AlunoDAO alunoDAO = new AlunoDAO();
+			alunoDAO.alterar(aluno);
+			return Response.status(Response.Status.ACCEPTED).build();
+		} catch (SQLException | ClassNotFoundException ex) {
+			Logger.getLogger(AlunoController.class.getName()).log(Level.SEVERE, null, ex);
+			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@DELETE
