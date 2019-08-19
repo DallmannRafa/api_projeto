@@ -10,7 +10,7 @@ public class ConexaoMysqlJDBC implements ConexaoJDBC {
 	private Connection connection = null;
 	private static final String USERNAME = "root";
 	// Senha do mysql
-	private static final String PASSWORD = "123456";
+	private static final String PASSWORD = "";
 	// Dados de caminho, porta e nome da base de dados que ir� ser feita a conex�o
 
 	private static final String DATABASE_URL =  "jdbc:mysql://localhost:3306/escola?useTimezone=true&serverTimezone=UTC";
